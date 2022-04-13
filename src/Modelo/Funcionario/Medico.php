@@ -2,10 +2,17 @@
 
 namespace Alura\Banco\Modelo\Funcionario;
 
-class Medico extends Funcionario
+use Alura\Banco\Modelo\Autenticavel;
+
+class Medico extends Funcionario implements Autenticavel
 {
     public function calculaBonificacao():float
     {
         return $this->recuperaSalario();
+    }
+
+    public function podeAutenticar(string $senha): bool
+    {
+        return $senha === '4321';
     }
 }
